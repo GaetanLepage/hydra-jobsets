@@ -53,13 +53,15 @@ let
 
   extractRawJobs =
     _packages: prefix:
-    lib.concatMapAttrs (
-      pname: systems:
-      map (system: {
-        inherit system;
-        path = (lib.optional (prefix != null) prefix) ++ [ pname ];
-      }) systems
-    ) _packages;
+    lib.concatLists (
+      lib.mapAttrsToList (
+        pname: systems:
+        map (system: {
+          inherit system;
+          path = (lib.optional (prefix != null) prefix) ++ [ pname ];
+        }) systems
+      ) _packages
+    );
 
   rawJobs =
     (extractRawJobs packages.topLevel null)
