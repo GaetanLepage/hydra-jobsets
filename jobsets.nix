@@ -3,8 +3,8 @@
 
   supportedSystems ? [
     "x86_64-linux"
-    "aarch64-linux"
-    "aarch64-darwin"
+    # "aarch64-linux"
+    # "aarch64-darwin"
   ],
   # The system evaluating this expression
   currentSystem ? builtins.currentSystem or "x86_64-linux",
