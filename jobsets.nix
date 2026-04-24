@@ -109,6 +109,18 @@ let
 
   allPackagePlatforms = entriesToAttrSet rawJobs;
 
-  jobs = release-lib.mapTestOn allPackagePlatforms;
+  # Filter out platforms where the package is not available according to
+  # meta.platforms / meta.badPlatforms / meta.hydraPlatforms.
+  # This avoids Hydra evaluation failures for unavailable packages.
+  filteredPlatforms = lib.mapAttrsRecursive (
+    path: systems:
+    let
+      pkg = lib.attrByPath path null release-lib.pkgs;
+      availablePlatforms = if pkg != null then release-lib.getPlatforms pkg else [ ];
+    in
+    lib.intersectLists systems availablePlatforms
+  ) allPackagePlatforms;
+
+  jobs = release-lib.mapTestOn filteredPlatforms;
 in
 jobs
