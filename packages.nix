@@ -11,6 +11,7 @@ in
     uv = allSystems;
     ruff = allSystems;
     ty = allSystems;
+    uutils-coreutils = allSystems;
 
     zed-editor = linuxSystems;
     neovim = allSystems;
@@ -18,12 +19,16 @@ in
     nixl = linuxSystems;
     exo = allSystems;
     mujoco = allSystems;
+    vllm = allSystems;
   };
 
   python = {
     torch = allSystems;
     torchaudio = allSystems;
     torchvision = allSystems;
+    torchrl = allSystems;
+    tensordict = allSystems;
+    vllm = allSystems;
     executorch = allSystems;
 
     jax = allSystems;
@@ -35,6 +40,7 @@ in
 
     fastexcel = allSystems;
     lancedb = allSystems;
+    ray = allSystems;
 
     wandb = allSystems;
 
