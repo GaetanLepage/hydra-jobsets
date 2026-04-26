@@ -34,6 +34,7 @@ in
     jax = allSystems;
     equinox = allSystems;
     lineax = allSystems;
+    optuna = allSystems;
 
     tinygrad = allSystems;
     dm-control = allSystems;
