@@ -12,6 +12,7 @@ in
     ruff = allSystems;
     ty = allSystems;
     uutils-coreutils = allSystems;
+    gpu-burn = linuxSystems;
 
     zed-editor = linuxSystems;
     neovim = allSystems;
@@ -27,6 +28,7 @@ in
     torchaudio = allSystems;
     torchvision = allSystems;
     torchrl = allSystems;
+    torch-cluster = allSystems;
     tensordict = allSystems;
     vllm = allSystems;
     executorch = allSystems;
@@ -50,5 +52,6 @@ in
     nixl = linuxSystems;
     xformers = linuxSystems;
     cuda-bindings = linuxSystems;
+    nvidia-cutlass = linuxSystems;
   };
 }
